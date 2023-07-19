@@ -30,7 +30,7 @@ function generateGridSize(gridSize) {
   containerDiv.innerHTML = "";
 
   // Calculate the width of each square based on the new grid size
-  const squareSize = 900 / gridSize;
+  const squareSize = 750 / gridSize;
 
   // Function to get a random RGB color
   function getRandomColor() {

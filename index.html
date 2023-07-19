@@ -8,10 +8,43 @@
     <title>Odin Etch-A-Sketch</title>
   </head>
   <body>
-    <button id="grid-ask" onclick="gridSizePrompt()">New Grid</button>
-    <button id="rainbow-mode-button" onclick="handleRainbowButtonClick()">
-      Rainbow Mode
-    </button>
-    <div class="container-div"></div>
+    <header class="hero-head">
+      <img class="img-1" src="img/cat-draw.gif" alt="cat drawing gif" />
+      <h1 data-text="ETCH-A-SKETCH"></h1>
+      <img src="img/cat-draw.gif" alt="cat drawing gif" />
+    </header>
+    <p>
+      Hover the mouse over the grid to draw <strong>ANYTHING</strong> you
+      desire. Feel free to modify the grid size as well with <em>New Grid</em>!
+    </p>
+
+    <div class="button-container">
+      <button
+        id="grid-ask"
+        class="button-33"
+        role="button"
+        onclick="gridSizePrompt()"
+      >
+        New Grid
+      </button>
+      <button
+        id="rainbow-mode-button"
+        class="button-33"
+        role="button"
+        onclick="handleRainbowButtonClick()"
+      >
+        Rainbow Mode
+      </button>
+    </div>
+    <div class="container-for-div">
+      <div class="container-div"></div>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="copyright">
+          Copyright © KYLE KHAI TRAN - - - - - Inspired by The Odin Project 2023
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
