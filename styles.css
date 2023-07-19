@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   width: 900px;
   height: 900px;
-  border: 2px solid purple;
+  border: 5px solid rgb(0, 0, 0);
   box-sizing: border-box;
 }
 
@@ -12,4 +12,9 @@
   height: calc(100% / 16);
   border: 2px solid black;
   box-sizing: border-box;
+  background-color: white;
+}
+
+.square-div.hover {
+  background-color: blue;
 }
