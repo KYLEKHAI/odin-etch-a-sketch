@@ -14,6 +14,14 @@ function gridSizePrompt() {
   }
 }
 
+// Extra rainbow mode
+let rainbowMode = false; // Variable to track if rainbow mode is enabled
+
+// Function to toggle rainbow mode
+function toggleRainbowMode() {
+  rainbowMode = !rainbowMode;
+}
+
 // Create a new grid
 function generateGridSize(gridSize) {
   const containerDiv = document.querySelector(".container-div");
@@ -24,9 +32,25 @@ function generateGridSize(gridSize) {
   // Calculate the width of each square based on the new grid size
   const squareSize = 900 / gridSize;
 
-  // Creating mouse hover event
+  // Function to get a random RGB color
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  // Creating mouse enter event
   function mouseEnter(e) {
     e.target.classList.add("hover");
+    const currentColor = e.target.style.backgroundColor;
+    if (rainbowMode) {
+      if (!currentColor || currentColor === "black") {
+        e.target.style.backgroundColor = getRandomColor();
+      }
+    } else {
+      e.target.style.backgroundColor = "black";
+    }
   }
 
   // Creating mouse leave event
@@ -51,6 +75,22 @@ function generateGridSize(gridSize) {
 
   // Appending to document
   document.body.appendChild(containerDiv);
+}
+
+// Function to handle the click on the rainbow mode button
+function handleRainbowButtonClick() {
+  const button = document.getElementById("rainbow-mode-button");
+  toggleRainbowMode();
+  if (rainbowMode) {
+    button.textContent = "Disable Rainbow Mode";
+    // Apply random RGB colors to the existing grid when rainbow mode is enabled
+    const squares = document.querySelectorAll(".square-div");
+    squares.forEach((square) => {
+      square.style.backgroundColor = getRandomColor();
+    });
+  } else {
+    button.textContent = "Enable Rainbow Mode";
+  }
 }
 
 // Load after HTML is parsed
