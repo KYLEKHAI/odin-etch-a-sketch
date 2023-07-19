@@ -1,0 +1,15 @@
+.container-div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  height: 900px;
+  border: 2px solid purple;
+  box-sizing: border-box;
+}
+
+.square-div {
+  width: calc(100% / 16);
+  height: calc(100% / 16);
+  border: 2px solid black;
+  box-sizing: border-box;
+}
