@@ -1,10 +1,28 @@
-// Load after HTML is parsed
-document.addEventListener("DOMContentLoaded", function () {
-  // Creating 16x16 square divs grid
+// Recieve user input to generate specific grid size
+function gridSizePrompt() {
+  const gridSize = prompt("Please input a grid size between 1-100");
+
+  // Handle user canceling the prompt
+  if (gridSize === null) {
+    return;
+  }
+  // Input conditions
+  if (gridSize >= 1 && gridSize <= 100) {
+    generateGridSize(Number(gridSize));
+  } else {
+    alert("Incorrect grid size value! Enter again...");
+  }
+}
+
+// Create a new grid
+function generateGridSize(gridSize) {
   const containerDiv = document.querySelector(".container-div");
 
-  // Create size of a grid (16x16)
-  let gridSize = 16;
+  // Clear the existing grid
+  containerDiv.innerHTML = "";
+
+  // Calculate the width of each square based on the new grid size
+  const squareSize = 900 / gridSize;
 
   // Creating mouse hover event
   function mouseEnter(e) {
@@ -20,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Assign squareDiv a class name to style via CSS
     squareDiv.className = "square-div";
 
+    // Set the size of each square
+    squareDiv.style.width = squareSize + "px"; // Set the width of the square
+    squareDiv.style.height = squareSize + "px"; // Set the height of the square
+
     // Add event listeners for mouseEnter and mouseLeave
     squareDiv.addEventListener("mouseenter", mouseEnter);
     squareDiv.addEventListener("mouseleave", mouseLeave);
@@ -29,4 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Appending to document
   document.body.appendChild(containerDiv);
+}
+
+// Load after HTML is parsed
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize grid with default size (16x16)
+  generateGridSize(16);
 });
