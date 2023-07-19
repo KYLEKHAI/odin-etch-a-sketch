@@ -45,3 +45,5 @@ Clone the repository to your local machine or download the files.
 Open the index.html file in your web browser.
 <br>
 Start drawing on the grid and have fun creating your masterpieces!
+
+**ONLY FOR DESKTOP USE**
