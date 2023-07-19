@@ -1,10 +1,26 @@
-// Load after HTML is parsed
-document.addEventListener("DOMContentLoaded", function () {
-  // Creating 16x16 square divs grid
+// Recieve user input to generate specific grid size
+function gridSizePrompt() {
+  const gridSize = prompt("Please input a grid size between 1-100");
+
+  // Handle user canceling the prompt
+  if (gridSize === null) {
+    return;
+  }
+  // Input conditions
+  if (gridSize >= 1 && gridSize <= 100) {
+    generateGridSize(Number(gridSize));
+  } else {
+    alert("Incorrect grid size value! Enter again...");
+  }
+}
+
+// Create a new grid
+function generateGridSize(gridSize) {
+  // Creating containerDiv
   const containerDiv = document.querySelector(".container-div");
 
-  // Create size of a grid (16x16)
-  let gridSize = 16;
+  // To clear the existing grid
+  containerDiv.innerHTML = "";
 
   // Creating mouse hover event
   function mouseEnter(e) {
@@ -29,4 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Appending to document
   document.body.appendChild(containerDiv);
+}
+
+// Load after HTML is parsed
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize grid with default size (16x16)
+  generateGridSize(16);
 });
