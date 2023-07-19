@@ -35,6 +35,11 @@ JavaScript Functions: Defined functions for generating the grid, handling rainbo
 
 How to Use
 
+Method 1:
+Open the following link!
+https://kylekhai.github.io/odin-etch-a-sketch/
+
+Method 2:
 Clone the repository to your local machine or download the files.
 <br>
 Open the index.html file in your web browser.
